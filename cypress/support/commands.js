@@ -25,14 +25,17 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('loginToTrello',()=>{
-      // eng.razanbalatiah96@gmail.com
+    // eng.razanbalatiah96@gmail.com
    // qa!@#$%^&*
-   cy.visit("/login")
+        cy.visit("/login")
+        cy.wait(3000)
    cy.fixture("trelloUser").then((data)=>{
         cy.findByTestId("username").type(data.email)
         cy.findByTestId("login-submit-idf-testid").click()
+        cy.wait(2000)
         cy.findByTestId("password").type(data.password)
         cy.findByTestId("login-submit-idf-testid").click()
+        cy.wait(6000)
    })
 })
 
